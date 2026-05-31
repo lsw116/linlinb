@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
-    <title>价格与政策说明</title>
+    <title>官网新规解读</title>
     <style>
         /* --- 基础样式 --- */
         body {
@@ -81,10 +81,503 @@
             margin-top: 15px;
         }
     </style>
-  <link rel="stylesheet" href="assets/professional.css">
+  <link rel="stylesheet" href="assets/professional.css?v=subnav-buy-20260531">
   <style>
-    @media (min-width: 901px) {
+    .policy-main {
+      display: block;
+      min-height: 100vh;
+      padding: 0 18px 42px;
+      background:
+        linear-gradient(180deg, #f7faff 0%, #eef4fb 100%);
+    }
+
+    .policy-main .subpage-topbar {
+      position: sticky;
+      top: 10px;
+      z-index: 1300;
+      backdrop-filter: blur(16px);
+    }
+
+    .policy-main > .container {
+      width: min(1120px, 100%) !important;
+      max-width: 1120px !important;
+      display: block !important;
+      margin: 16px auto 42px !important;
+      padding: 20px !important;
+      text-align: left !important;
+      background: rgba(255, 255, 255, 0.96) !important;
+      border-color: #d8e3f0 !important;
+    }
+
+    .policy-hero,
+    .policy-section,
+    .policy-summary {
+      border: 1px solid #d9e3ef;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .policy-hero {
+      padding: 24px;
+      margin-bottom: 14px;
+      background: linear-gradient(180deg, #fbfdff 0%, #ffffff 100%);
+    }
+
+    .policy-hero h1 {
+      margin: 0 0 10px !important;
+      font-size: clamp(2rem, 4vw, 2.55rem) !important;
+      line-height: 1.12 !important;
+    }
+
+    .policy-hero > p:not(.eyebrow) {
+      max-width: 780px;
+      margin: 0 !important;
+    }
+
+    .policy-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .policy-kpis div {
+      min-height: 78px;
+      padding: 13px 15px;
+      border: 1px solid #dfe7f2;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+
+    .policy-kpis span {
+      display: block;
+      color: #64748b;
+      font-size: 0.82rem;
+      font-weight: 720;
+    }
+
+    .policy-kpis strong {
+      display: block;
+      margin-top: 4px;
+      color: #0f172a !important;
+      font-size: 1.06rem;
+      line-height: 1.35;
+    }
+
+    .policy-main .top-alert {
+      margin: 0 0 14px !important;
+      padding: 16px 18px !important;
+      border-radius: 8px !important;
+      background: #fff8ed !important;
+      border: 1px solid #f1d0a5 !important;
+      border-left: 4px solid #c8791a !important;
+    }
+
+    .policy-main .top-alert .title {
+      color: #9a3412 !important;
+    }
+
+    .policy-section {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      margin-top: 14px;
+    }
+
+    .policy-section > div:first-child {
+      position: sticky;
+      top: 92px;
+    }
+
+    .policy-section h2 {
+      margin: 0 0 8px !important;
+      padding: 0 !important;
+      border: 0 !important;
+    }
+
+    .policy-section p {
+      margin: 0 !important;
+      max-width: 42ch;
+      line-height: 1.75 !important;
+    }
+
+    .policy-section p + p {
+      margin-top: 8px !important;
+    }
+
+    .policy-floating-chat {
+      appearance: none;
+      position: fixed;
+      top: min(68vh, 600px);
+      left: max(18px, calc((100vw - 1080px) / 2 + 126px));
+      z-index: 900;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: 9px;
+      width: fit-content;
+      max-width: min(280px, calc(100vw - 36px));
+      margin: 0;
+      padding: 10px 12px;
+      border: 1px solid #d8e3f0;
+      border-radius: 8px;
+      background: rgba(248, 251, 255, 0.94);
+      color: #334155;
+      font: inherit;
+      text-align: left;
+      backdrop-filter: blur(12px);
+      box-shadow: inset 3px 0 0 #cfe0f8;
+      cursor: pointer;
+      transition: border-color 0.16s ease, background-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .policy-floating-chat::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #2563eb;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+      animation: policyHintPulse 2.2s ease-in-out infinite;
+    }
+
+    .policy-floating-chat span {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 820;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .policy-floating-chat:hover {
+      border-color: #a9bad4;
+      background: #f8fbff;
+      box-shadow: inset 3px 0 0 #a8c3ef, 0 12px 26px rgba(15, 23, 42, 0.08);
+      transform: translateY(-1px);
+    }
+
+    @keyframes policyHintPulse {
+      0%,
+      100% {
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+      }
+
+      50% {
+        box-shadow: 0 0 0 7px rgba(37, 99, 235, 0.04);
+      }
+    }
+
+    .policy-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .policy-gallery.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .policy-image-link {
+      display: grid;
+      place-items: center;
+      position: relative;
+      min-height: 270px;
+      height: clamp(270px, 30vw, 390px);
+      padding: 8px;
+      border: 1px solid #dbe5f1;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #f9fbff 0%, #f4f7fb 100%);
+      overflow: hidden;
+      text-decoration: none;
+      cursor: zoom-in;
+      transition: border-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .policy-gallery.three .policy-image-link {
+      min-height: 210px;
+      height: clamp(210px, 19vw, 260px);
+    }
+
+    .policy-image-link:hover {
+      border-color: #9db5d8;
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .policy-image-link .notice-image {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      max-height: 100% !important;
+      margin: 0 !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      object-fit: contain;
+      background: transparent !important;
+      box-shadow: none !important;
+      transition: transform 0.18s ease;
+    }
+
+    .policy-image-link:hover .notice-image {
+      transform: scale(1.035);
+    }
+
+    .policy-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(8px);
+    }
+
+    .policy-lightbox[hidden] {
+      display: none;
+    }
+
+    .policy-lightbox img {
+      display: block;
+      width: auto;
+      max-width: min(1120px, 94vw);
+      max-height: 88vh;
+      border: 1px solid rgba(255, 255, 255, 0.28) !important;
+      border-radius: 8px !important;
+      background: #fff !important;
+      object-fit: contain;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
+    }
+
+    .policy-lightbox-close {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.86);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .policy-lightbox-open {
+      overflow: hidden;
+    }
+
+    .policy-summary {
+      margin-top: 14px;
+      padding: 18px 20px;
+      background: #f8fafc;
+    }
+
+    .policy-summary p {
+      max-width: 72ch;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: 0 !important;
+      background: transparent !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .policy-image-link {
+        transition: none;
+      }
+
+      .policy-image-link:hover {
+        transform: none;
+      }
+
+      .policy-image-link .notice-image {
+        transition: none;
+      }
+
+      .policy-image-link:hover .notice-image {
+        transform: none;
+      }
+
+      .policy-floating-chat::before {
+        animation: none;
+      }
+    }
+
+	    @media (max-width: 900px) {
+	      .policy-main {
+	        padding: 0 14px 32px;
+	      }
+
       .policy-main > .container {
+        padding: 16px !important;
+      }
+
+      .policy-kpis,
+      .policy-section,
+      .policy-gallery,
+      .policy-gallery.three {
+        grid-template-columns: 1fr;
+      }
+
+      .policy-section > div:first-child {
+        position: static;
+      }
+
+      .policy-floating-chat {
+        display: none;
+      }
+
+      .policy-image-link,
+      .policy-gallery.three .policy-image-link {
+        min-height: 240px;
+        height: 58vw;
+	        max-height: 420px;
+	      }
+	    }
+
+	    @media (max-width: 640px) {
+	      body.policy-main {
+	        padding: 136px 10px 28px !important;
+	      }
+
+	      .policy-main .subpage-topbar {
+	        position: fixed;
+	        top: 12px;
+	        right: 12px;
+	        left: 12px;
+	        z-index: 1300;
+	        width: auto !important;
+	        max-width: none !important;
+	        margin: 0;
+	        padding: 12px;
+	        gap: 10px;
+	        align-items: stretch;
+	        overflow: hidden;
+	      }
+
+	      .policy-main .subpage-topbar nav {
+	        display: flex;
+	        width: 100%;
+	        max-width: 100%;
+	        flex-wrap: nowrap;
+	        gap: 6px;
+	        overflow-x: auto;
+	        scrollbar-width: none;
+	        -webkit-overflow-scrolling: touch;
+	      }
+
+	      .policy-main .subpage-topbar nav::-webkit-scrollbar {
+	        display: none;
+	      }
+
+	      .policy-main .subpage-topbar nav a {
+	        flex: 0 0 auto;
+	        min-height: 42px;
+	        padding: 0 12px;
+	        font-size: 0.86rem;
+	        background: rgba(237, 243, 255, 0.72);
+	        border: 1px solid rgba(185, 200, 220, 0.58);
+	      }
+
+	      .policy-main > .container {
+	        width: calc(100% - 20px) !important;
+	        max-width: calc(100% - 20px) !important;
+	        margin: 0 auto 28px !important;
+	        padding: 12px !important;
+	      }
+
+	      .policy-hero {
+	        padding: 20px 18px;
+	        margin-bottom: 12px;
+	      }
+
+	      .policy-hero h1 {
+	        margin-bottom: 10px !important;
+	        font-size: clamp(1.72rem, 7.4vw, 2.05rem) !important;
+	        line-height: 1.16 !important;
+	      }
+
+	      .policy-hero > p:not(.eyebrow) {
+	        max-width: none;
+	        font-size: 1rem;
+	        line-height: 1.65 !important;
+	      }
+
+	      .policy-section {
+	        display: block;
+	        padding: 16px;
+	        margin-top: 12px;
+	      }
+
+	      .policy-section > div:first-child {
+	        margin-bottom: 14px;
+	      }
+
+	      .policy-section h2 {
+	        margin-bottom: 10px !important;
+	        padding-bottom: 10px !important;
+	        border-bottom: 1px solid #d9e3ef !important;
+	        font-size: clamp(1.28rem, 5.6vw, 1.5rem) !important;
+	        line-height: 1.24 !important;
+	      }
+
+	      .policy-section p {
+	        max-width: none;
+	        font-size: 0.98rem;
+	        line-height: 1.68 !important;
+	      }
+
+	      .policy-gallery,
+	      .policy-gallery.three {
+	        grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+	        gap: 10px;
+	      }
+
+	      .policy-image-link,
+	      .policy-gallery.three .policy-image-link {
+	        min-height: 0;
+	        height: clamp(178px, 52vw, 232px);
+	        max-height: none;
+	        padding: 5px;
+	      }
+
+	      .policy-image-link .notice-image {
+	        object-fit: cover;
+	        object-position: top center;
+	      }
+
+	      .policy-summary {
+	        padding: 16px;
+	      }
+
+	      .policy-summary p {
+	        font-size: 0.96rem;
+	        line-height: 1.66 !important;
+	      }
+
+	      .policy-lightbox {
+	        padding: 12px;
+	      }
+
+	      .policy-lightbox img {
+	        max-width: 96vw;
+	        max-height: 86vh;
+	      }
+
+	      .policy-lightbox-close {
+	        top: 10px;
+	        right: 10px;
+	        width: 44px;
+	        height: 44px;
+	      }
+	    }
+
+	    @media (min-width: 901px) {
+	      .policy-main > .container {
         max-width: 1080px !important;
         display: block !important;
         text-align: left !important;
@@ -193,82 +686,124 @@
   </style>
 </head>
 <body class="policy-page policy-main">
-<div class="subpage-topbar"><a class="subpage-brand" href="index.html">文文 Gpt</a><nav><a href="index.html">首页</a><a href="help.html">帮助</a><a href="gpt170.html">价格说明</a><a href="help.html#contact">联系客服</a></nav></div>
+<div class="subpage-topbar"><a class="subpage-brand" href="index.html">文文 Gpt</a><nav><a href="index.html">首页</a><a href="https://fe.dtyuedan.cn/shop/gptplus" target="_blank" rel="noopener noreferrer nofollow">商品购买</a><a href="gpt170.html">价格说明</a><a href="index.html#contact" data-contact-qr-open>联系客服</a></nav></div>
 
 
     <div class="container">
 
         <header class="policy-hero">
             <p class="eyebrow">Price & Policy</p>
-            <h1>价格与政策说明</h1>
-            <p>本页用于说明当前服务价格、渠道成本和低价渠道风险，方便下单前快速判断。</p>
-            <div class="policy-kpis">
-                <div><span>当前价格</span><strong>180 元 / 月</strong></div>
-                <div><span>服务重点</span><strong>流程清晰，可追踪</strong></div>
-                <div><span>风险提醒</span><strong>谨慎选择异常低价</strong></div>
-            </div>
+            <h1>价格说明、服务口碑</h1>
+            <p>重要提醒：警惕低价不正规渠道，可能带来封号、追责等风险，账号追责周期可能长达 60~90 天，甚至更久。</p>
         </header>
 
-        <div class="top-alert">
-            <div class="title">重要提醒：谨防黑白混充 / 0元购低价套路</div>
-            <p>目前市面上存在很多黑白混充、0元购（0元试用卡bug充一个月甚至一年）等低价渠道，存在 <span class="em">极高封号风险</span> 及其他隐患</p>
-            <p>我们坚持 <strong>合规运营</strong>，而非为了无底线抢客源、恶性竞争。<strong>诚信经营、稳定服务</strong> 才是根本。</p>
-        </div>
-
         <section class="policy-section">
             <div>
-                <h2>低价渠道风险</h2>
-                <p>异常低价渠道通常伴随更高账户风险。请优先选择流程清晰、售后明确的服务。</p>
+                <h2>9.16官网新规</h2>
+                <p>官方已经统一价格和打击漏洞刷会员等行为，不要再对任何低价渠道有侥幸心理！</p>
+                <button class="policy-floating-chat" type="button" data-policy-lightbox-trigger data-policy-lightbox-src="help/th.png" data-policy-lightbox-alt="聊天反馈大图">
+                    <span>点击图片可查看聊天大图</span>
+                </button>
             </div>
-            <div class="policy-gallery three">
-                <img src="help/jg011.png" alt="低价风险说明 1" class="notice-image">
-                <img src="help/jg012.png" alt="低价风险说明 2" class="notice-image">
-                <img src="help/jg013.png" alt="低价风险说明 3" class="notice-image">
+            <div class="policy-gallery">
+                <a class="policy-image-link" href="help/gpt16.png"><img src="help/gpt16.png" alt="公告图片" class="notice-image" loading="lazy" decoding="async"></a>
+                <a class="policy-image-link" href="help/official-price-risk.jpg"><img src="help/official-price-risk.jpg" alt="低价渠道追责说明" class="notice-image" loading="lazy" decoding="async"></a>
             </div>
         </section>
 
         <section class="policy-section">
             <div>
-                <h2>渠道与成本</h2>
-                <p><strong>当前稳定渠道成本较高；我们会优先采用流程清晰、可追踪的处理方式。</strong></p>
+                <h2>稳定才是王道</h2>
+                <p>市面上大部分低价渠道涉及嘿卡、0元购、卡bug等猫腻，可能带来封号、追责等隐患。</p>
+                <p>我们坚持合规运营，而非为了抢客源、无底线恶性竞争。诚信经营、稳定服务才是根本。</p>
             </div>
             <div class="policy-gallery">
-                <img src="help/th.png" alt="同行价格说明" class="notice-image">
-                <img src="help/yk.png" alt="预付费说明" class="notice-image">
+                <a class="policy-image-link" href="help/jg013.png"><img src="help/jg013.png" alt="低价风险说明 3" class="notice-image" loading="lazy" decoding="async"></a>
+                <a class="policy-image-link" href="help/jg011.png"><img src="help/jg011.png" alt="低价风险说明 1" class="notice-image" loading="lazy" decoding="async"></a>
+                <a class="policy-image-link" href="help/stable-risk.jpg"><img src="help/stable-risk.jpg" alt="稳定正规说明" class="notice-image" loading="lazy" decoding="async"></a>
+                <a class="policy-image-link" href="help/account-risk.jpg"><img src="help/account-risk.jpg" alt="账号追责说明" class="notice-image" loading="lazy" decoding="async"></a>
             </div>
         </section>
 
         <section class="policy-section">
             <div>
-                <h2>当前价格说明</h2>
-                <p><strong>当前可用充值资源较紧张，价格调整为 180 元。</strong></p>
+                <h2>正规白资渠道</h2>
+                <p><strong>目前正规渠道成本极贵，但我司保证所有代充均为正规白资渠道，确保官方扣款与正版订阅，请放心使用。</strong></p>
+                <p>事出反常必有妖，现存低价有极高封号风险（嘿卡、0元购）或其他套路！</p>
             </div>
             <div class="policy-gallery">
-                <img src="help/jg005.png" alt="价格说明 1" class="notice-image">
-                <img src="help/jg004.png" alt="价格说明 2" class="notice-image">
-                <img src="help/jg001.jpg" alt="价格说明 3" class="notice-image">
-                <img src="help/jg003.jpg" alt="价格说明 4" class="notice-image">
+                <a class="policy-image-link" href="help/yk.png"><img src="help/yk.png" alt="预付费说明" class="notice-image" loading="lazy" decoding="async"></a>
+                <a class="policy-image-link" href="help/regular-channel-risk-1.jpg"><img src="help/regular-channel-risk-1.jpg" alt="正规渠道风险说明 1" class="notice-image" loading="lazy" decoding="async"></a>
+                <a class="policy-image-link" href="help/regular-channel-risk-2.jpg"><img src="help/regular-channel-risk-2.jpg" alt="正规渠道风险说明 2" class="notice-image" loading="lazy" decoding="async"></a>
+                <a class="policy-image-link" href="help/th.png"><img src="help/th.png" alt="同行价格说明" class="notice-image" loading="lazy" decoding="async"></a>
             </div>
         </section>
 
         <section class="policy-section">
             <div>
-                <h2>政策变化</h2>
-                <p><strong>9 月 16 日后，部分低价地区渠道已收紧。</strong>建议优先关注渠道稳定性、操作流程透明度和售后保障。</p>
+                <h2>价格调整至180元</h2>
+                <p><strong>目前市面充值ID非常紧张，价格调整至180元</strong></p>
             </div>
             <div class="policy-gallery">
-                <img src="help/gpt16.png" alt="公告图片" class="notice-image">
-                <img src="help/170.jpg" alt="正规充值价格" class="notice-image">
+                <a class="policy-image-link" href="help/jg005.png"><img src="help/jg005.png" alt="价格说明 1" class="notice-image" loading="lazy" decoding="async"></a>
+                <a class="policy-image-link" href="help/jg004.png"><img src="help/jg004.png" alt="价格说明 2" class="notice-image" loading="lazy" decoding="async"></a>
+                <a class="policy-image-link" href="help/jg001.jpg"><img src="help/jg001.jpg" alt="价格说明 3" class="notice-image" loading="lazy" decoding="async"></a>
+                <a class="policy-image-link" href="help/jg003.jpg"><img src="help/jg003.jpg" alt="价格说明 4" class="notice-image" loading="lazy" decoding="async"></a>
             </div>
         </section>
 
         <div class="description policy-summary">
             <p>
-                180 元价格主要由原订阅费用、支付渠道成本、设备与人工服务、系统维护及售后保障组成。
+                180元价格构成（20美金加充卡手续费约145元+苹果ID或卡成本+磨损+服务器、设备、人工、稳定保障等成本)<strong>追求低价，注意嘿卡和封号等风险！</strong>）
             </p>
         </div>
 
     </div>
 
+    <div class="policy-lightbox" data-policy-lightbox hidden role="dialog" aria-modal="true" aria-label="查看大图">
+        <button class="policy-lightbox-close" type="button" data-policy-lightbox-close aria-label="关闭大图">×</button>
+        <img alt="" data-policy-lightbox-image>
+    </div>
+
+    <script>
+      (() => {
+        const links = document.querySelectorAll(".policy-image-link, [data-policy-lightbox-trigger]");
+        const lightbox = document.querySelector("[data-policy-lightbox]");
+        const image = document.querySelector("[data-policy-lightbox-image]");
+        const closeButton = document.querySelector("[data-policy-lightbox-close]");
+        if (!links.length || !lightbox || !image || !closeButton) return;
+
+        const closeLightbox = () => {
+          lightbox.hidden = true;
+          image.removeAttribute("src");
+          image.removeAttribute("alt");
+          document.body.classList.remove("policy-lightbox-open");
+        };
+
+        links.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+            const preview = link.querySelector("img");
+            image.src = link.dataset.policyLightboxSrc || link.href;
+            image.alt = link.dataset.policyLightboxAlt || (preview ? preview.alt : "价格说明图片");
+            lightbox.hidden = false;
+            document.body.classList.add("policy-lightbox-open");
+            closeButton.focus();
+          });
+        });
+
+        closeButton.addEventListener("click", closeLightbox);
+
+        lightbox.addEventListener("click", (event) => {
+          if (event.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
+        });
+      })();
+    </script>
+
+  <script src="assets/contact-modal.js?v=20260531-contact-modal-v2"></script>
 </body>
 </html>
