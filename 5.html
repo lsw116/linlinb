@@ -198,6 +198,71 @@
       gap:10px;
     }
 
+    .channel-switch{
+      display:flex;
+      gap:4px;
+      padding:4px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#f8fafc;
+    }
+
+    .channel-option{
+      flex:1 1 0;
+      min-width:0;
+      min-height:44px;
+      border:0;
+      border-radius:10px;
+      background:transparent;
+      color:var(--text-2);
+      font:inherit;
+      font-size:14px;
+      font-weight:850;
+      line-height:1.3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      cursor:pointer;
+      transition:background-color .2s ease, color .2s ease, box-shadow .2s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .channel-option.is-active{
+      background:#fff;
+      color:var(--apple-blue);
+      box-shadow:0 4px 14px rgba(15,23,42,.08);
+    }
+
+    .channel-tag{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:20px;
+      padding:2px 7px;
+      border-radius:999px;
+      background:rgba(142,142,147,.12);
+      color:var(--text-3);
+      font-size:11px;
+      font-weight:850;
+      line-height:1;
+      white-space:nowrap;
+    }
+
+    .channel-option.is-active .channel-tag{
+      background:rgba(0,122,255,.12);
+      color:var(--apple-blue);
+    }
+
+    .channel-current{
+      margin:0;
+      color:var(--text-2);
+      font-size:13px;
+      font-weight:750;
+      line-height:1.5;
+      text-align:center;
+    }
+
     .system-link{
       display:flex;
       align-items:center;
@@ -226,6 +291,100 @@
     .system-link:active{
       background:var(--apple-blue-active);
       transform:scale(.98);
+    }
+
+    .system-link[data-system-enabled="false"]{
+      background:#8e8e93;
+      box-shadow:none;
+      cursor:not-allowed;
+    }
+
+    .system-link[data-system-enabled="false"]:hover,
+    .system-link[data-system-enabled="false"]:active{
+      background:#8e8e93;
+      transform:none;
+    }
+
+    .system-status{
+      display:inline-flex;
+      align-items:center;
+      min-height:22px;
+      padding:2px 8px;
+      border-radius:999px;
+      background:rgba(255,255,255,.22);
+      color:#fff;
+      font-size:12px;
+      font-weight:800;
+      line-height:1.4;
+      white-space:nowrap;
+    }
+
+    .system-link[data-system-enabled="true"] .system-status{
+      display:none;
+    }
+
+    .entry-countdown-overlay{
+      position:fixed;
+      inset:0;
+      z-index:3000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      background:rgba(15,23,42,.46);
+      backdrop-filter:blur(12px);
+    }
+
+    .entry-countdown-dialog{
+      width:min(360px, 100%);
+      padding:22px;
+      border-radius:18px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 24px 60px rgba(0,0,0,.22);
+      text-align:center;
+    }
+
+    .entry-countdown-title{
+      font-size:18px;
+      font-weight:850;
+      color:var(--text);
+    }
+
+    .entry-countdown-message{
+      margin:10px 0 16px;
+      color:var(--text-2);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .entry-countdown-number{
+      display:inline-flex;
+      align-items:baseline;
+      justify-content:center;
+      gap:4px;
+      min-width:96px;
+      padding:10px 18px;
+      border-radius:16px;
+      background:var(--apple-blue);
+      color:#fff;
+      font-weight:900;
+    }
+
+    .entry-countdown-number span{
+      font-size:42px;
+      line-height:1;
+    }
+
+    .entry-countdown-number small{
+      font-size:14px;
+      font-weight:850;
+    }
+
+    .entry-countdown-note{
+      margin:12px 0 0;
+      color:var(--text-3);
+      font-size:13px;
     }
 
     .steps-wrap{
@@ -458,6 +617,46 @@
       border-style:solid !important;
     }
 
+    @media (max-width:640px){
+      body.system-choice-page{
+        padding-top:92px !important;
+      }
+
+      body.system-choice-page > .subpage-topbar{
+        display:flex !important;
+        flex-direction:row !important;
+        align-items:center !important;
+        gap:8px !important;
+        padding:10px 12px !important;
+        overflow:hidden !important;
+      }
+
+      body.system-choice-page > .subpage-topbar .subpage-brand{
+        width:auto !important;
+        flex:0 0 auto !important;
+        min-height:38px !important;
+        white-space:nowrap !important;
+      }
+
+      body.system-choice-page > .subpage-topbar nav{
+        width:auto !important;
+        flex:1 1 auto !important;
+        min-width:0 !important;
+        display:flex !important;
+        flex-wrap:nowrap !important;
+        justify-content:flex-start !important;
+        overflow-x:auto !important;
+        padding-bottom:0 !important;
+      }
+
+      body.system-choice-page > .subpage-topbar nav a{
+        flex:0 0 auto !important;
+        min-height:38px !important;
+        padding:0 10px !important;
+        font-size:.84rem !important;
+      }
+    }
+
     @media (max-width:420px){
       .system-choice-page .system-header{
         padding:12px 12px 6px !important;
@@ -507,13 +706,23 @@
           </ol>
         </div>
 
-        <div class="system-actions">
-          <a href="https://aixufei.net/" class="system-link" target="_blank" rel="noopener noreferrer">
-            进入充值系统1
-          </a>
+        <div class="system-actions" data-default-channel="2">
+          <div class="channel-switch" role="group" aria-label="充值通道切换">
+            <button class="channel-option is-active" type="button" data-channel-choice="2" aria-pressed="true">
+              <span>充值系统2</span>
+              <span class="channel-tag">默认</span>
+            </button>
+            <button class="channel-option" type="button" data-channel-choice="1" aria-pressed="false">
+              <span>充值系统1</span>
+              <span class="channel-tag">备用</span>
+            </button>
+          </div>
 
-          <a href="#" class="system-link" data-disabled-system-message="系统2暂未启用，请选择系统1">
-            进入充值系统2
+          <p class="channel-current" data-channel-current>当前选择：充值系统2</p>
+
+          <a href="https://czgpt.plus/" class="system-link" target="_blank" rel="noopener noreferrer" data-channel-entry data-system-enabled="true" data-disabled-system-message="系统2暂未启用，请选择系统1" data-entry-message="验证卡密之后获取session数据，提交使用后，耐心等待 5~10 分钟充值完成">
+            <span data-channel-entry-label>进入充值系统2</span>
+            <span class="system-status">暂未启用</span>
           </a>
         </div>
 
@@ -562,8 +771,108 @@
 
   <script src="assets/contact-modal.js?v=20260531-contact-modal-v2"></script>
   <script>
-    document.querySelectorAll("[data-disabled-system-message]").forEach((link) => {
+    const entryCountdownSeconds = 10;
+    let entryCountdownTimer = null;
+    const rechargeChannels = {
+      "1": {
+        label: "充值系统1",
+        href: "https://520fafa.cn/",
+        enabled: true,
+        disabledMessage: "系统1暂未启用，请选择系统2",
+        entryMessage: ""
+      },
+      "2": {
+        label: "充值系统2",
+        href: "https://czgpt.plus/",
+        enabled: true,
+        disabledMessage: "系统2暂未启用，请选择系统1",
+        entryMessage: "验证卡密之后获取session数据，提交使用后，耐心等待 5~10 分钟充值完成"
+      }
+    };
+
+    function setRechargeChannel(channelId) {
+      const channel = rechargeChannels[channelId] || rechargeChannels["2"];
+      const entryLink = document.querySelector("[data-channel-entry]");
+      const entryLabel = document.querySelector("[data-channel-entry-label]");
+      const currentLabel = document.querySelector("[data-channel-current]");
+
+      if (!entryLink || !entryLabel || !currentLabel) {
+        return;
+      }
+
+      entryLink.href = channel.href;
+      entryLink.dataset.systemEnabled = channel.enabled ? "true" : "false";
+      entryLink.dataset.disabledSystemMessage = channel.disabledMessage;
+      entryLabel.textContent = `进入${channel.label}`;
+      currentLabel.textContent = `当前选择：${channel.label}`;
+
+      if (channel.entryMessage) {
+        entryLink.dataset.entryMessage = channel.entryMessage;
+      } else {
+        delete entryLink.dataset.entryMessage;
+      }
+
+      document.querySelectorAll("[data-channel-choice]").forEach((button) => {
+        const isActive = button.dataset.channelChoice === channelId;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+    }
+
+    function startEntryCountdown(link) {
+      if (entryCountdownTimer) {
+        return;
+      }
+
+      let remaining = entryCountdownSeconds;
+      const overlay = document.createElement("div");
+      overlay.className = "entry-countdown-overlay";
+      overlay.setAttribute("role", "alert");
+      overlay.setAttribute("aria-live", "assertive");
+      overlay.innerHTML = `
+        <div class="entry-countdown-dialog">
+          <div class="entry-countdown-title">充值系统2即将打开</div>
+          <p class="entry-countdown-message"></p>
+          <div class="entry-countdown-number"><span data-countdown-number>${remaining}</span><small>秒</small></div>
+          <p class="entry-countdown-note">请阅读提示，倒计时结束后自动进入</p>
+        </div>
+      `;
+
+      overlay.querySelector(".entry-countdown-message").textContent = link.dataset.entryMessage || "";
+      document.body.appendChild(overlay);
+
+      const countdownNumber = overlay.querySelector("[data-countdown-number]");
+      entryCountdownTimer = window.setInterval(() => {
+        remaining -= 1;
+        countdownNumber.textContent = String(Math.max(remaining, 0));
+
+        if (remaining <= 0) {
+          window.clearInterval(entryCountdownTimer);
+          entryCountdownTimer = null;
+          window.location.href = link.href;
+        }
+      }, 1000);
+    }
+
+    document.querySelectorAll("[data-channel-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        setRechargeChannel(button.dataset.channelChoice);
+      });
+    });
+
+    setRechargeChannel(document.querySelector(".system-actions")?.dataset.defaultChannel || "2");
+
+    document.querySelectorAll("[data-disabled-system-message], [data-entry-message]").forEach((link) => {
       link.addEventListener("click", (event) => {
+        if (link.dataset.systemEnabled !== "false") {
+          if (link.dataset.entryMessage) {
+            event.preventDefault();
+            startEntryCountdown(link);
+          }
+
+          return;
+        }
+
         event.preventDefault();
         alert(link.dataset.disabledSystemMessage || "系统暂未启用，请选择其他系统");
       });
