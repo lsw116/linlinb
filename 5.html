@@ -358,6 +358,19 @@
       line-height:1.7;
     }
 
+    .entry-countdown-warning{
+      margin:0 0 16px;
+      padding:10px 12px;
+      border-radius:12px;
+      background:#fff1f0;
+      border:1px solid var(--danger-border);
+      color:#b42318;
+      font-size:13px;
+      font-weight:850;
+      line-height:1.65;
+      text-align:left;
+    }
+
     .entry-countdown-number{
       display:inline-flex;
       align-items:baseline;
@@ -720,7 +733,7 @@
 
           <p class="channel-current" data-channel-current>当前选择：充值系统2</p>
 
-          <a href="https://czgpt.plus/" class="system-link" target="_blank" rel="noopener noreferrer" data-channel-entry data-system-enabled="true" data-disabled-system-message="系统2暂未启用，请选择系统1" data-entry-message="验证卡密之后获取session数据，提交使用后，耐心等待 5~10 分钟充值完成">
+          <a href="https://czgpt.plus/" class="system-link" target="_blank" rel="noopener noreferrer" data-channel-entry data-system-enabled="true" data-disabled-system-message="系统2暂未启用，请选择系统1" data-entry-message="验证卡密之后获取session数据，提交使用后，耐心等待 5~10 分钟充值完成" data-entry-warning="充值成功前禁止退出账号登录或者拉账单，否则会导致session 过期，充值失败。">
             <span data-channel-entry-label>进入充值系统2</span>
             <span class="system-status">暂未启用</span>
           </a>
@@ -779,14 +792,16 @@
         href: "https://520fafa.cn/",
         enabled: true,
         disabledMessage: "系统1暂未启用，请选择系统2",
-        entryMessage: ""
+        entryMessage: "",
+        entryWarning: ""
       },
       "2": {
         label: "充值系统2",
         href: "https://czgpt.plus/",
         enabled: true,
         disabledMessage: "系统2暂未启用，请选择系统1",
-        entryMessage: "验证卡密之后获取session数据，提交使用后，耐心等待 5~10 分钟充值完成"
+        entryMessage: "验证卡密之后获取session数据，提交使用后，耐心等待 5~10 分钟充值完成",
+        entryWarning: "充值成功前禁止退出账号登录或者拉账单，否则会导致session 过期，充值失败。"
       }
     };
 
@@ -812,6 +827,12 @@
         delete entryLink.dataset.entryMessage;
       }
 
+      if (channel.entryWarning) {
+        entryLink.dataset.entryWarning = channel.entryWarning;
+      } else {
+        delete entryLink.dataset.entryWarning;
+      }
+
       document.querySelectorAll("[data-channel-choice]").forEach((button) => {
         const isActive = button.dataset.channelChoice === channelId;
         button.classList.toggle("is-active", isActive);
@@ -833,12 +854,18 @@
         <div class="entry-countdown-dialog">
           <div class="entry-countdown-title">充值系统2即将打开</div>
           <p class="entry-countdown-message"></p>
+          <p class="entry-countdown-warning" data-entry-warning-text hidden></p>
           <div class="entry-countdown-number"><span data-countdown-number>${remaining}</span><small>秒</small></div>
           <p class="entry-countdown-note">请阅读提示，倒计时结束后自动进入</p>
         </div>
       `;
 
       overlay.querySelector(".entry-countdown-message").textContent = link.dataset.entryMessage || "";
+      const warningText = overlay.querySelector("[data-entry-warning-text]");
+      if (link.dataset.entryWarning) {
+        warningText.textContent = link.dataset.entryWarning;
+        warningText.hidden = false;
+      }
       document.body.appendChild(overlay);
 
       const countdownNumber = overlay.querySelector("[data-countdown-number]");
